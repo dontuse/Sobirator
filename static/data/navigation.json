@@ -1,0 +1,18 @@
+[
+    {
+        "title" : "Купить",
+        "url" : "/about"
+    },
+    {
+        "title" : "Продать",
+        "url" : "/about"
+    },
+    {
+        "title" : "Контакты",
+        "url" : "/about"
+    },
+    {
+        "title" : "Услуги",
+        "url" : "/about"
+    }
+]

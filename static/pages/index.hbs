@@ -1,0 +1,36 @@
+---
+title: Home
+
+people:
+- Jon Schlinkert
+- Brian Woodward
+
+buttonText: Нажми меня
+
+---
+
+<h1 class="b-title">{{title}}</h1>
+
+{{>b-breadcrumb}}
+
+{{>b-pagination}}
+{{>b-button buttonText}}
+
+<div class="b-control">
+    <div class="b-contol__container-1">
+        <label class="b-contol__label">ФИО: </label>
+    </div>
+    <div class="b-contol____container-2">
+        <input  class="b-contol__input b-input" placeholder="Необходимо заполнить это поле.">
+        <span class="b-contol__error">Необходимо заполнить это поле.</span>
+    </div>
+</div>
+
+
+<div>-{{b.title}}</div>
+<div>-{{b}}</div>
+<div>-{{b.title}}</div>
+<div>-{{my-data.navData}}</div>
+
+
+

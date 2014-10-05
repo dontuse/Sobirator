@@ -1,0 +1,15 @@
+[
+    "../js/lib/jquery-1.8.2.min.js",
+    "../js/lib/tiny-pubsub.js",
+    "../js/lib/jquery.placeholder.js",
+
+    "../js/lib/jcarousel/core.js",
+    "../js/lib/jcarousel/core_plugin.js",
+    "../js/lib/jcarousel/scrollintoview.js",
+    "../js/lib/jcarousel/control.js",
+    "../js/lib/jcarousel/pagination.js",
+    "../js/lib/jcarousel/autoscroll.js",
+
+
+    "../js/js-carousel.js"
+]

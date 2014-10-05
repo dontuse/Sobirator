@@ -1,0 +1,30 @@
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.clearFix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  // Fixes Opera/contenteditable bug:
+  // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// old ie
+.float() {
+  float: left;
+  *display: inline;
+}
+
+.reset() {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}

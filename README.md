@@ -1,4 +1,4 @@
-LoveLess
+Sobirator
 ========
 <div>
     <a target="_blank" href="http://gruntjs.com/">Grunt</a>
@@ -7,7 +7,7 @@ LoveLess
     <h3>Установка:</h3>
 
     <p>
-        cd html/build
+        cd static/build
     </p>
     <p>
         npm install

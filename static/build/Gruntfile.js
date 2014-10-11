@@ -93,6 +93,15 @@ module.exports = function (grunt) {
                 }
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 2 versions', 'ie 8', 'ie 9']
+            },
+            dist: {
+                src: ['../publish/style.css'],
+                dest: '../publish/style.css'
+            }
+        },
         copy: {
             main: {
                 src: '../js/',
@@ -106,19 +115,21 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');     // компилит less / жмет
     grunt.loadNpmTasks('grunt-contrib-uglify');  // жмет js
     grunt.loadNpmTasks('grunt-contrib-watch');  // вотчер
-    //grunt.loadNpmTasks("grunt-image-embed");   // конвертит картинке в base64
+    grunt.loadNpmTasks("grunt-image-embed");   // конвертит картинке в base64
     grunt.loadNpmTasks('assemble');           // сборка html
     grunt.loadNpmTasks('grunt-contrib-connect');  // сервер
+    grunt.loadNpmTasks('grunt-autoprefixer');
+
 
 
     // main dev task
-    grunt.registerTask('default', [ 'concat' , 'less:dev' , 'assemble']);
+    grunt.registerTask('default', [ 'concat' , 'less:dev' , 'assemble' , 'autoprefixer' ]);
 
     // server
     grunt.registerTask('server', ['connect', 'watch']);
 
     // production
-    grunt.registerTask('prod', ['concat', 'uglify' , 'less:production' , 'imageEmbed'] );
+    grunt.registerTask('prod', ['concat', 'uglify' , 'less:production' , 'imageEmbed' , 'autoprefixer'] );
 
 
 

@@ -1,21 +1,22 @@
 {
-  "name": "sobirator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Andrey Bayandin",
-  "license": "WTF ?",
-  "dependencies": {
-    "assemble": "^0.4.42",
-    "grunt": "^0.4.5",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-connect": "^0.8.0",
-    "grunt-contrib-less": "^0.11.4",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-postcss": "^0.1.0"
-  }
+    "name": "sobirator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Andrey Bayandin",
+    "license": "WTF ?",
+    "dependencies": {
+        "assemble": "^0.4.42",
+        "grunt": "^0.4.5",
+        "grunt-autoprefixer": "^1.0.1",
+        "grunt-contrib-concat": "^0.5.0",
+        "grunt-contrib-connect": "^0.8.0",
+        "grunt-contrib-less": "^0.11.4",
+        "grunt-contrib-uglify": "^0.6.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-image-embed": "^0.3.1"
+    }
 }

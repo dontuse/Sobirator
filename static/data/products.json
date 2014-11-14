@@ -1,0 +1,30 @@
+[
+    {
+        "pic": "static/tmp/prod-mini-pic/p1.jpg",
+        "shortDescr": "asdsadsad",
+        "name": "Товар номер 1",
+        "price" : "12123"
+
+    },
+    {
+        "pic": "static/tmp/prod-mini-pic/p1.jpg",
+        "shortDescr": "asdsadsad",
+        "name": "Товар номер 1",
+        "price" : "12323231"
+
+    },
+    {
+        "pic": "",
+        "shortDescr": "asdsadsad",
+        "name": "Товар номер 1",
+        "price" : "12323"
+
+    },
+    {
+        "pic": "",
+        "shortDescr": "asdsadsad",
+        "name": "другой товар"
+
+    }
+
+]

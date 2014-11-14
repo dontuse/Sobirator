@@ -23,7 +23,7 @@ module.exports = function (grunt) {
                 options: {
                 },
                 files: {
-                    "../publish/style.css": "../blocks/love.less"
+                    "../publish/style.css": "../blocks/sobirator.less"
                 }
             },
             production: {
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    "../publish/style.css": "../blocks/love.less"
+                    "../publish/style.css": "../blocks/sobirator.less"
                 }
             }
         },

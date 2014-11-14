@@ -50,6 +50,10 @@ nav,
 section,
 summary {
   display: block;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
 }
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
@@ -172,13 +176,11 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-figure {
-  margin: 1em 40px;
-}
 /**
  * Address differences between Firefox and other browsers.
  */
 hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -307,6 +309,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -531,4 +535,29 @@ textarea {
   float: left;
   width: 206px;
   padding-left: 206px;
+}
+.b-product {
+  display: inline-block;
+  width: 190px;
+  min-height: 200px;
+  border: 1px solid orange;
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  font-size: 12px;
+  padding-top: 10px;
+}
+.b-product__pic-box {
+  height: 100px;
+  line-height: 100px;
+  background: beige;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.b-product__img {
+  max-width: 100%;
+}
+.b-product__props {
+  margin-left: 15px;
 }

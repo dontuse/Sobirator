@@ -53,7 +53,13 @@ module.exports = function (grunt) {
 
             },
             pages : {
-                files: ['../pages/**/*.hbs' , '../parts/**/*.hbs', '../layouts/**/*.hbs' ],
+                files: ['' +
+                    '../pages/**/*.hbs' ,
+                    '../parts/**/*.hbs',
+                    '../layouts/**/*.hbs' ,
+                    '../blocks/**/*.hbs',
+                    '../data/**/*.json'
+                ],
                 tasks: 'assemble'
             }
         },

@@ -28,7 +28,7 @@ module.exports = function (grunt) {
             },
             production: {
                 options: {
-                    yuicompress: true
+                    cleancss: true
                 },
                 files: {
                     "../publish/style.css": "../blocks/sobirator.less"

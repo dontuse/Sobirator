@@ -312,7 +312,23 @@
 </footer>
 
 
-
+<script src="static/js/bower/jquery/dist/jquery.js"></script>
+<script>
+    $(function () {
+        $('button').click(function (e) {
+            $.ajax({
+                url: 'static/ajax/test.json',
+                method: 'post',
+                data: {x:2,z:7},
+                dataType: "json"
+            }).done(function(data) {
+                console.log(data);
+            }).fail(function(){
+                console.log('fail');
+            });
+        });
+    });
+</script>
 
 
 </body>

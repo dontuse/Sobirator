@@ -1,5 +1,3 @@
-
-
 module.exports = function (grunt) {
 
     // Project configuration.
@@ -7,7 +5,7 @@ module.exports = function (grunt) {
 
         concat: {
             dist: {
-                src:  grunt.file.readJSON('js.json'),
+                src: grunt.file.readJSON('js.json'),
                 dest: '../publish/script.js'
             }
         },
@@ -20,8 +18,7 @@ module.exports = function (grunt) {
         },
         less: {
             dev: {
-                options: {
-                },
+                options: {},
                 files: {
                     "../publish/style.css": "../blocks/sobirator.less"
                 }
@@ -41,7 +38,7 @@ module.exports = function (grunt) {
                 livereload: true
             },
             scripts: {
-                files: ['<%= concat.dist.src %>','js.js'],
+                files: ['<%= concat.dist.src %>', 'js.js'],
                 tasks: 'concat'
             },
             css: {
@@ -52,11 +49,11 @@ module.exports = function (grunt) {
                 tasks: 'less:dev'
 
             },
-            pages : {
+            pages: {
                 files: ['' +
-                    '../pages/**/*.hbs' ,
+                '../pages/**/*.hbs',
                     '../parts/**/*.hbs',
-                    '../layouts/**/*.hbs' ,
+                    '../layouts/**/*.hbs',
                     '../blocks/**/*.hbs',
                     '../data/**/*.json'
                 ],
@@ -68,7 +65,7 @@ module.exports = function (grunt) {
                 src: ['../publish/style.css'],
                 dest: '../publish/style.css',
                 options: {
-                    deleteAfterEncoding : false
+                    deleteAfterEncoding: false
                 }
             }
         },
@@ -77,12 +74,12 @@ module.exports = function (grunt) {
                 data: ['../data/*.json'],
                 layoutdir: '../layouts',
                 layout: 'main.hbs',
-                tmpPath : 'html/tmp/',
-                blockPath : 'html/block',
-                stylePath : 'html/publish',
-                jsPath : 'html/js',
-                partials: ['../parts/**/*.hbs' , '../blocks/**/*.hbs' ],
-               // data: ['../data/*.{json,yml}'],
+                tmpPath: 'html/tmp/',
+                blockPath: 'html/block',
+                stylePath: 'html/publish',
+                jsPath: 'html/js',
+                partials: ['../parts/**/*.hbs', '../blocks/**/*.hbs'],
+                // data: ['../data/*.{json,yml}'],
                 flatten: true
             },
             pages: {
@@ -95,26 +92,50 @@ module.exports = function (grunt) {
             server: {
                 options: {
                     livereload: true,
-                    base: '../../'
+                    base: '../../',
+                    middleware: function (connect, options, middlewares) {
+                        // inject a custom middleware into the array of default middlewares
+                        middlewares.unshift(function (req, res, next) {
+                            res.setHeader('Access-Control-Allow-Origin', '*');
+                            res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+                            res.setHeader('Access-Control-Allow-Headers', '*');
+
+                            var fs = require('fs');
+                            var path = require('path');
+                            var support = ['POST', 'PUT', 'DELETE'];
+
+                                if (support.indexOf(req.method.toUpperCase()) != -1) {
+                                    var filepath = path.join(options.base[0], req.url);
+                                    if (fs.existsSync(filepath) && fs.statSync(filepath).isFile()) {
+                                        return res.end(fs.readFileSync(filepath));
+                                    }
+                                }
+
+                                return next();
+
+                            });
+
+                            return middlewares;
+                        }
+                    }
+                }
+            },
+            autoprefixer: {
+                options: {
+                    browsers: ['last 2 versions', 'ie 8', 'ie 9']
+                },
+                dist: {
+                    src: ['../publish/style.css'],
+                    dest: '../publish/style.css'
+                }
+            },
+            copy: {
+                main: {
+                    src: '../js/',
+                    dest: 'create-me'
                 }
             }
-        },
-        autoprefixer: {
-            options: {
-                browsers: ['last 2 versions', 'ie 8', 'ie 9']
-            },
-            dist: {
-                src: ['../publish/style.css'],
-                dest: '../publish/style.css'
-            }
-        },
-        copy: {
-            main: {
-                src: '../js/',
-                dest: 'create-me'
-            }
-        }
-    });
+        });
 
 
     grunt.loadNpmTasks('grunt-contrib-concat');    // конкатит файлы
@@ -127,17 +148,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
 
 
-
     // main dev task
-    grunt.registerTask('default', [ 'concat' , 'less:dev' , 'assemble' , 'autoprefixer' ]);
+    grunt.registerTask('default', ['concat', 'less:dev', 'assemble', 'autoprefixer']);
 
     // server
     grunt.registerTask('server', ['connect', 'watch']);
 
     // production
-    grunt.registerTask('prod', ['concat', 'uglify' , 'less:production' , 'imageEmbed' , 'autoprefixer'] );
-
-
+    grunt.registerTask('prod', ['concat', 'uglify', 'less:production', 'imageEmbed', 'autoprefixer']);
 
 
 };
